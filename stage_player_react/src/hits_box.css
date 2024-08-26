@@ -1,0 +1,32 @@
+.artist-box {
+    width: 180px;
+    height: 180px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.artist-image {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+}
+
+.info {
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.song-name {
+    margin: 2px 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.artist-name {
+    margin: 2px 0;
+    font-size: 10px;
+    color: #666;
+}

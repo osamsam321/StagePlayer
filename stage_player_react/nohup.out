@@ -1,0 +1,71 @@
+
+> stage_player_react@0.1.0 start
+> react-app-rewired start
+
+(node:25777) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:25777) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled successfully!
+
+You can now view stage_player_react in the browser.
+
+  Local:            http://localhost:2800
+  On Your Network:  http://192.168.1.236:2800
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled successfully
+
+> stage_player_react@0.1.0 start
+> react-app-rewired start
+
+(node:4971) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:4971) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled successfully!
+
+You can now view stage_player_react in the browser.
+
+  Local:            http://localhost:2800
+  On Your Network:  http://192.168.1.236:2800
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled successfully
+
+> stage_player_react@0.1.0 start
+> react-app-rewired start
+
+Something is already running on port 2800.
+
+> stage_player_react@0.1.0 start
+> react-app-rewired start
+
+Something is already running on port 2800.
+
+> stage_player_react@0.1.0 start
+> react-app-rewired start
+
+Something is already running on port 2800.
+
+> stage_player_react@0.1.0 start
+> react-app-rewired start
+
+Something is already running on port 2800.
+
+> stage_player_react@0.1.0 start
+> react-app-rewired start
+
+Something is already running on port 2800.
+
+> stage_player_react@0.1.0 start
+> react-app-rewired start
+
+Something is already running on port 2800.
+Killed

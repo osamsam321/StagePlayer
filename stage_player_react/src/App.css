@@ -1,0 +1,253 @@
+body{
+  max-width: 100%;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  margin: 0;
+  padding: 0;
+}
+full_width{
+  width: 100%;
+}
+nav{
+  height: 50px;
+  width: 100%;
+  background-color: rgb(50, 50, 50);
+}
+input[type='radio'][name='search_select_option'] {
+display:none;
+cursor: pointer;
+}
+label {
+  display:inline-block;
+  padding:3px;
+  border:1px solid #e0e0e0;
+  border-radius:3px;
+  background-color:#F0F0F0;
+  width:5em;
+  text-align:center;
+  cursor: pointer;
+}
+
+/* Clicking a label will select its corresponding hidden radio button
+   We can select that radio buttons sibling label and style it. */
+input[type='radio'][name='search_select_option']:checked + label {
+background-color:#fdda22;
+}
+/* containers */
+
+.cont-basic{
+  width: 100%;
+}
+
+/* container basic sizes */
+
+.cont_size_small{
+  width: 25%;
+}
+.cont_size_extra_small{
+  width: 10%;
+}
+.cont_size_smallest{
+  width: 3%;
+}
+
+/*flex boxes */
+
+.flex-basic{
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-top-center{
+  display: flex;
+ justify-content:center;
+ flex-wrap: nowrap;
+}
+.flex-top-center-column-orientation{
+  display: flex;
+ justify-content:center;
+ flex-wrap: nowrap;
+ flex-direction: column;
+}
+.flex-right{
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.flex-for-top-charts_container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.text-align-center{
+  text-align: center;
+}
+.title_cont{
+  width: 100%;
+  height: 50px;
+}
+/* unique */
+#song_title{
+  font-size: 15px;
+  margin: 10px 0px 10px 0px;
+  color: var(--font-color-default-c3);
+}
+#artist_title{
+  font-size: 12px;
+  margin-top: 0px;
+  color: var(--font-color-default-c2);
+}
+#link_cont{
+  width:400px;
+  height:inherit;
+}
+#link_word{
+  text-decoration: none;
+  color: var(--font-color-default-c1);
+}
+#link{
+  text-decoration: none;
+}
+#top_charts_main_container{
+row-gap: 0px;
+column-gap: 40px;
+margin: 50px auto auto auto;
+height: 1000px;
+}
+#top_charts_child_container{
+  width: 280px;
+  height: 280px;
+  margin-top: 30px;
+  border-radius: 15px;
+}
+#top_charts_child_container img{
+  width: 180px;
+  height: 180px;
+  border-radius: 15px;
+}
+
+#audio_playback_ui_widget{
+  margin:auto;
+  text-align: center;
+  z-index: 1000;
+}
+#search_and_result_main_container{
+ width: 100%;
+}
+#spotify_playback_ui{
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  z-index: 1000;
+  border:none;
+}
+/* search box style */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba("30", "30", "30", "1.0");
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+.search-container input[type="text"] {
+  border: none;
+  outline: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 25px 0 0 25px;
+  width: 800px;
+}
+.search-container button {
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.search-container button:hover {
+  background-color: #0056b3;
+}
+.track_link{
+  text-decoration: none;
+}
+.text_center{
+  text-align: center;
+}
+.loading_img{
+  height: 500px;
+  width: 500px;
+}
+.search_option_toggle{
+  height: 25px;
+  width: 60px;
+  border: 1px solid rgb(150,150,150);
+  border-radius: 5px;
+}
+.pointer_cursor{
+  cursor:pointer
+}
+.icon_small{
+  height: 20px;
+  width: 20px;
+}
+.nav_right_group{
+  margin-right: 10px;
+  width: 100px;
+}
+.hover_effect:hover{
+  background: #c924;
+}
+
+/* color config */
+
+.search-bk-color{
+  background-color:var(--primary-color-default-c5);
+}
+
+
+
+/* css variables */
+
+:root{
+  /* nameing convention  "type" "color" "color scheme name" "configuration value" */
+  /* default color scheme */
+  --primary-color-default-c5:rgba(210,210,210,0.8);
+  --font-color-default-c1: rgba(220, 220, 220, 1);
+  --font-color-default-c2: #000000;
+  --font-color-default-c3: #33acdd;
+}
+
+
+
+/* sizes */
+
+.full_width{
+  width: 100%;
+}
+.top_hits_width{
+  width:80%;
+}
+.search_result_and_hits_width {
+width: 90%;
+}
+
+@media screen and (min-width: 600px) {
+
+
+}
+
+
+

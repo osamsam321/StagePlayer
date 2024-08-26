@@ -1,0 +1,57 @@
+import Nav from './nav';
+import HitsBox from './hits_box';
+export default function StagePlayerHomepage(){
+  return(
+    <>
+       <Nav/>
+
+      <section id="search">
+          <div class="search-container">
+            <input class="search-bk-color" type="text" placeholder="Search..."/>
+            <button type="submit">Search</button>
+          </div>
+      </section>
+
+      <section id="search_result_and_hits">
+        <div id='hits_box_container' class="search_result_and_hits_width flex-basic">
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+          <HitsBox/>
+        </div>
+      </section>
+
+      <section id="audio_playback_ui">
+        <div id='audio_playback_ui' class="flex-center">
+          <iframe src="https://open.spotify.com/embed/track/7F02x6EKYIQV3VcTaTm7oN?utm_source=generator" width="100%" height="150"  allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+
+          </iframe>
+        </div>
+      </section>
+
+    </>
+  );
+}
