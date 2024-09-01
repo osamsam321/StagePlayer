@@ -107,7 +107,7 @@ let json_response = "";
          <div id='search_and_result_main_container' className='flex-top-center-column-orientation'>
             {!loading && no_search_results && init && <RenderTopCharts json_data={hits_data} onClick={update_track_id} track_id={track_id} />}
 
-             {no_search_results && !init && <div className='cont-basic flex-center'> <h1 className='text-align-center'> There are no Results </h1> </div>}
+             {no_search_results && !init && <div className='cont-basic flex-center'> <h1 className='text-align-center roboto-regular font_size_large'> There are no Results </h1> </div>}
             {track_search_query && !no_search_results && <TrackSearchQuery track_search_query={track_search_query} token={props.token}  limit="7" onClick={update_track_id} track_id={track_id}  />}
 
              {loading &&

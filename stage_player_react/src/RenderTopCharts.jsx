@@ -29,7 +29,7 @@ const RenderTopCharts = ({json_data, onClick, track_id}) => {
    return (
     <>
       <div className='title_cont flex-top-center text-align-center '  >
-          <h1>Top Tracks</h1>
+          <h1 className="roboto-regular font_size_large">Top Tracks</h1>
       </div>
       <div id='top_charts_main_container' className='flex-for-top-charts_container search_result_and_hits_width' >
         {track_contents.map((track_content) => (
