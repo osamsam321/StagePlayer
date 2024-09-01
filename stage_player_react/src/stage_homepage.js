@@ -1,12 +1,10 @@
 import Nav from './nav';
-import HitsBox from './hits_box';
 import './App.css'
 import React, { useState, useEffect } from 'react';
 import { Vortex, Audio, Bars, LineWave, ColorRing} from 'react-loader-spinner';
 import { render } from '@testing-library/react';
 import TrackSearchQuery from './search_track'
 import assert from 'assert'
-import SpotifyEmbededPlayback from './SpotifyEmbededPlayback';
 import RenderTopCharts from './RenderTopCharts';
 import SpotifyPlayer from 'react-spotify-web-playback';
 //import { Helmet } from "react-helmet"
@@ -80,9 +78,11 @@ let json_response = "";
       <Nav/>
       <section id="search">
           <div className="search-container">
-           <a className='cont_size_smallest' href='http://localhost:2800'> <img  height="35" className='pointer_cursor'  src="https://img.icons8.com/ios/50/home--v1.png" alt="home--v1"/> </a>
-            <input className="search-bk-color" type="text" placeholder="Search..." onChange={e=> search_bar_input(e.target.value)} />
-            <button type="submit">Search Track</button>
+            <a id='home_button' className='cont_size_smallest' href='http://localhost:2800'> <img  height="30" className='pointer_cursor'  src="https://img.icons8.com/ios/50/home--v1.png" alt="home--v1"/> </a>
+            <div className="search_box_container flex-center">
+              <input className="search-bk-color" type="text" placeholder="Search Track..." onChange={e=> search_bar_input(e.target.value)} />
+              <img id='search_magnify-glass' className='icon_size_small ab_pos_icon ' alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CjxwYXRoIGQ9Ik0gMjEgMyBDIDExLjYyMTA5NCAzIDQgMTAuNjIxMDk0IDQgMjAgQyA0IDI5LjM3ODkwNiAxMS42MjEwOTQgMzcgMjEgMzcgQyAyNC43MTA5MzggMzcgMjguMTQwNjI1IDM1LjgwNDY4OCAzMC45Mzc1IDMzLjc4MTI1IEwgNDQuMDkzNzUgNDYuOTA2MjUgTCA0Ni45MDYyNSA0NC4wOTM3NSBMIDMzLjkwNjI1IDMxLjA2MjUgQyAzNi40NjA5MzggMjguMDg1OTM4IDM4IDI0LjIyMjY1NiAzOCAyMCBDIDM4IDEwLjYyMTA5NCAzMC4zNzg5MDYgMyAyMSAzIFogTSAyMSA1IEMgMjkuMjk2ODc1IDUgMzYgMTEuNzAzMTI1IDM2IDIwIEMgMzYgMjguMjk2ODc1IDI5LjI5Njg3NSAzNSAyMSAzNSBDIDEyLjcwMzEyNSAzNSA2IDI4LjI5Njg3NSA2IDIwIEMgNiAxMS43MDMxMjUgMTIuNzAzMTI1IDUgMjEgNSBaIj48L3BhdGg+Cjwvc3ZnPg=="/>
+            </div>
           </div>
 
     {/*TODO ADD FEATURE TO SEARCH BY ARTIST OR WHATEVER
@@ -108,7 +108,7 @@ let json_response = "";
             {!loading && no_search_results && init && <RenderTopCharts json_data={hits_data} onClick={update_track_id} track_id={track_id} />}
 
              {no_search_results && !init && <div className='cont-basic flex-center'> <h1 className='text-align-center'> There are no Results </h1> </div>}
-            {track_search_query && !no_search_results && <TrackSearchQuery track_search_query={track_search_query} token={props.token}  limit="8" onClick={update_track_id} track_id={track_id}  />}
+            {track_search_query && !no_search_results && <TrackSearchQuery track_search_query={track_search_query} token={props.token}  limit="7" onClick={update_track_id} track_id={track_id}  />}
 
              {loading &&
                  <div className='cont-basic flex-center'>
