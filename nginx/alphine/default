@@ -1,0 +1,28 @@
+# This is a default site configuration which will simply return 404, preventing
+# chance access to any other virtualhost.
+
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        root /var/www;
+
+        location / {
+                index index.html;
+        }
+
+        # You may need this to prevent return 404 recursion.
+        location = /404.html {
+                internal;
+        }
+
+        #proxy api requests to the backend
+        location /api_v1 {
+                #proxy_pass http://sp_pages;
+                proxy_pass http://localhost:3000;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+}

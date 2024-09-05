@@ -1,5 +1,6 @@
 {
   "name": "stage_player_react",
+  "homepage": "/stage_player",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
