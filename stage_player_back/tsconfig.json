@@ -2,20 +2,19 @@
   "compilerOptions": {
     "skipLibCheck": true,
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "target": "ESNext",
     "isolatedModules": true,
     "esModuleInterop": true,
-    "noEmit": true,
-    "allowImportingTsExtensions": true,
-    "outDir": "dist",
+    //"allowImportingTsExtensions": true,
+    "outDir": "build/stage_player_back",
     "lib": [ "esnext" ],
     "types": [ "node" ],
-    "baseUrl": "./",
+    "rootDir": "src"
   },
   "exclude": [ "node_modules" ],
   "include": [
-    "src/**/*.ts",
-    "bin/*.ts"
+    "./src/**/*.ts",
+    "./bin/*.ts"
   ]
 }

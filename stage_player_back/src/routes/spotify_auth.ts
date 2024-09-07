@@ -1,12 +1,11 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import cors from 'cors'
+import cors from 'cors';
 import { Router } from "express";
-import path from "../constants/path.ts"
+import path from "../constants/path.js";
 import axios from "axios";
 import request from 'request';
 import cookieParser from 'cookie-parser';
-import { access } from 'fs';
 
 global.access_token = ''
 
@@ -22,8 +21,7 @@ let auth_router = Router();
 app.use(path.spotify_auth.base, auth_router);
 let spotify_client_id = process.env.SPOTIFY_CLIENT_ID
 let spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET
-
-let spotify_redirect_uri = 'http://localhost:3000/api/auth/callback'
+let spotify_redirect_uri = process.env.SPOTIFY_REDIRECT_URI;
 
 let generateRandomString = function (length:any) {
   let text = '';
