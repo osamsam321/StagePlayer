@@ -170,6 +170,12 @@ async function start_search_delay(){
 
 async function spotify_top_chart(version, token){
     //console.log("token before sending " + token);
+      const BASE_URL_BACKEND = window.location.href.includes('localhost') ?
+        "http://localhost:3000":
+        "https://odisite";
+      const BASE_URL_FRONTEND = window.location.href.includes('localhost') ?
+        "http://localhost:2800":
+        "https://odisite/stage_player";
     const spotify_base_url='https://api.spotify.com';
     const url = `${spotify_base_url}/${version}/playlists/37i9dQZEVXbMDoHDwVN2tF`;
     const options = {
@@ -188,7 +194,7 @@ async function spotify_top_chart(version, token){
         return json_response;
       }else if(req.status == 401){
        // console.log("going to refresh token");
-        window.location.href = 'http://localhost:3000/api/auth/login';
+          window.location.href =`${BASE_URL_BACKEND}/api/auth/login?redirect_uri=${BASE_URL_FRONTEND}`;
       }else{
         console.log(`given the error ${req.status}`);
         console.log("req response " +  req.statusText);

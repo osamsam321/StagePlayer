@@ -17,6 +17,7 @@ export default {
    callback: "/callback",
    refresh_token:"/refresh_token",
    token: "/token",
+   session_token: "/session_token",
  },
  home: "/home",
 }

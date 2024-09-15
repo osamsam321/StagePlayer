@@ -11,6 +11,7 @@ if [ "$1" = ".env.file.prod" ] || [ "$1" = ".env.file.dev" ]; then
     docker build  -t 'stage_player_docker_v1:dev' .
     docker run --env-file "$1" -p 3000:3000 -p 80:80 -d stage_player_docker_v1:dev
     docker exec -it `docker ps -q` /bin/sh
+    echo "done"
     else
         echo "Incorrect parameter. Please provide the .env.list file to pass in. It should be .env.file.prod or .env.file.dev"
         exit 1;

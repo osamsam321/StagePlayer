@@ -15,14 +15,13 @@ app.use(session({
     saveUninitialized: true,
 }));
 app.use(cors({
-    origin: 'http://localhost:2800/*', // Replace with your client app URL
+    origin: 'http://localhost:80/*', // Replace with your client app URL
     credentials: true // Enable credentials to allow cookies, authorization headers, etc.
 }));
 //app.use(cors({
 //origin: '*', // Replace with your client app URL
 //credentials: true // Enable credentials to allow cookies, authorization headers, etc.
 //}));
-const allowedOrigins = ['http://localhost:2800'];
 //app.use(function(req, res, next) {
 //  res.header("Access-Control-Allow-Origin", "*");
 //  res.header("Access-Control-Allow-Headers", "X-Requested-With");

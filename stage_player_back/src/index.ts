@@ -20,15 +20,21 @@ app.use(session({
 }));
 
 app.use(cors({
-  origin: 'http://localhost:2800/*', // Replace with your client app URL
-  credentials: true // Enable credentials to allow cookies, authorization headers, etc.
+  origin: ['http://localhost:80', 'http://localhost:2800',], // Replace with your client app URL
+  credentials: true, // Enable credentials to allow cookies, authorization headers, etc.
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'] // Specify allowed headers
 }));
+// Middleware to parse JSON data in the request body
+app.use(express.json());
+
+// Middleware to parse URL-encoded data in the request body
+app.use(express.urlencoded({ extended: true }));
 //app.use(cors({
 //origin: '*', // Replace with your client app URL
 //credentials: true // Enable credentials to allow cookies, authorization headers, etc.
 //}));
 
-const allowedOrigins = ['http://localhost:2800'];
 //app.use(function(req, res, next) {
 //  res.header("Access-Control-Allow-Origin", "*");
 //  res.header("Access-Control-Allow-Headers", "X-Requested-With");

@@ -8,7 +8,7 @@ global.access_token = '';
 dotenv.config();
 let app = Router();
 app.use(cors({
-    origin: 'http://localhost:2800', // Replace with your client app URL
+    origin: 'http://localhost:80', // Replace with your client app URL
     credentials: true // Enable credentials to allow cookies, authorization headers, etc.
 }));
 app.use(cookieParser()); // <-- Ensure this line is included
@@ -102,7 +102,7 @@ app.get(path.spotify_auth.auth + path.spotify_auth.callback, async (req, res) =>
             // Explicitly specify the type of the parameters to avoid any confusion
             res.cookie('access_token', access_token, cookieOptions);
             //console.log("Cookies after setting access token:", req.cookies.access_token);  // Debugging: Check the cookies
-            res.redirect('http://localhost:2800');
+            res.redirect('http://localhost');
         }
     }
     catch (error) {

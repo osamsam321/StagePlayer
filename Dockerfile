@@ -25,12 +25,13 @@ COPY nginx/alphine/default /etc/nginx/http.d/default
 WORKDIR /app/stage_player_back
 COPY stage_player_back/package.json .
 COPY stage_player_back/package-lock.json .
-RUN npm install --only=dev
+#prod is a little confusing, but essentially skip the dev dependencies and install all other dependencies
+RUN npm install --only=prod
 COPY --chown=node:node /stage_player_back/build/stage_player_back .
 WORKDIR /app
 COPY --chown=node:node /stage_player_react/build/ /var/www/stage_player
 #FINAL scripts
 RUN echo "<h1> Welcome </h1>">> /var/www/index.html
-CMD ["/docker_start_commands.sh"]
+CMD ["/bin/bash", "/docker_start_commands.sh"]
 
 
