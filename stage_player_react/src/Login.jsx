@@ -2,7 +2,9 @@
         "http://localhost:3000":
         "https://odisite";
       const BASE_URL_FRONTEND = window.location.href.includes('localhost') ?
-        "http://localhost:2800":
+        // use for development
+        //"http://localhost:2800":
+        "http://localhost/stage_player/index.html":
         "https://odisite/stage_player";
 
     const code = new URLSearchParams(window.location.search).get('code');

@@ -14,10 +14,28 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
 }));
+const allowedOrigins = ['http://localhost', 'http://localhost:80', 'http://localhost:2800'];
 app.use(cors({
-    origin: 'http://localhost:80/*', // Replace with your client app URL
-    credentials: true // Enable credentials to allow cookies, authorization headers, etc.
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl)
+        if (!origin)
+            return callback(null, true);
+        if (allowedOrigins.includes(origin)) {
+            return callback(null, origin);
+        }
+        else {
+            const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+            return callback(new Error(msg), false);
+        }
+    },
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
 }));
+// Middleware to parse JSON data in the request body
+app.use(express.json());
+// Middleware to parse URL-encoded data in the request body
+app.use(express.urlencoded({ extended: true }));
 //app.use(cors({
 //origin: '*', // Replace with your client app URL
 //credentials: true // Enable credentials to allow cookies, authorization headers, etc.

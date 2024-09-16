@@ -29,7 +29,7 @@ COPY stage_player_back/package-lock.json .
 RUN npm install --only=prod
 COPY --chown=node:node /stage_player_back/build/stage_player_back .
 WORKDIR /app
-COPY --chown=node:node /stage_player_react/build/ /var/www/stage_player
+COPY --chown=node:node /stage_player_react/build/ /var/www/
 #FINAL scripts
 RUN echo "<h1> Welcome </h1>">> /var/www/index.html
 CMD ["/bin/bash", "/docker_start_commands.sh"]

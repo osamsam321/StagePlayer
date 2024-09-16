@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 module.exports = function override(config) {
   const fallback = config.resolve.fallback || {};
   Object.assign(fallback, {
@@ -11,6 +12,8 @@ module.exports = function override(config) {
     url: require.resolve('url'),
   });
   config.resolve.fallback = fallback;
+  config.output.path = path.resolve(__dirname, 'build/stage_player');
+
   config.plugins = (config.plugins || []).concat([
     new webpack.ProvidePlugin({
       process: 'process/browser',
