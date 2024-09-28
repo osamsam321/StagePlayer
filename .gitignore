@@ -83,7 +83,6 @@ Thumbs.db
 *.log
 *.sql
 *.sqlite
-*.env
 
 # ignore compiled files
 *.com
@@ -108,6 +107,9 @@ Thumbs.db
 *.der
 *.key
 *.pem
+
+#ignore enviornment files
+*.env
 
 # --------------------------------------------------------
 # BEGIN Explictly Allowed Files (i.e. do NOT ignore these)
