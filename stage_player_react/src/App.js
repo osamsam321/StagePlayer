@@ -11,95 +11,20 @@ function App() {
   useEffect(() => {
 
     async function login(){
-      const token = await handle_login();
-      setToken(token);
+      const token_received = await handle_login();
+      //do not reset the token to empty or null if it is already set from another request
+      if (token_received) {
+        setToken(token_received);
+      }
     }
 
-//      const BASE_URL_BACKEND = window.location.href.includes('localhost') ?
-//        "http://localhost:3000":
-//        "https://odisite";
-//      const BASE_URL_FRONTEND = window.location.href.includes('localhost') ?
-//        "http://localhost:2800":
-//        "https://odisite/stage_player";
-//
-//    const code = new URLSearchParams(window.location.search).get('code');
-//
-//    async function login(){
-//      const token = await get_session_token();
-//      //console.log("token expires in " + token.expires_in);
-//      if(!token){
-//        if(!code){
-//          console.log("Tryna reach Spotify api...");
-//          window.location.href =`${BASE_URL_BACKEND}/api/auth/login?redirect_uri=${BASE_URL_FRONTEND}`;
-//        }else{
-//          const token_response = await get_token(code);
-//          if(token_response == null){
-//            console.log("Issue with getting token.Token response was null.");
-//          }else if(token_response.status == 200){
-//            const json = await token_response.json();
-//            console.log("json auth return " + JSON.stringify(json));
-//            setToken(json.access_token);
-//          }else{
-//            console.log("Issue with getting token. Response was not 200.");
-//          }
-//        }
-//      } else{
-//        setToken(token);
-//      }
-//    }
-//
-//    async function get_session_token(){
-//      let token;
-//
-//      try{
-//        const response = await fetch(`${BASE_URL_BACKEND}/api/auth/session_token`, {
-//            credentials: 'include',  // Include cookies with the request      credentials: 'include',  // Include cookies with the request
-//        });
-//        if(response.status == 200){
-//          const json = await response.json();
-//          setToken(json.access_token);
-//          setTokenExpiresIn(json.expires_in);
-//          console.log("json return " + JSON.stringify(json));
-//          return json.access_token;
-//        }
-//        else {
-//          setToken('');
-//          console.log("could not get token with status: " + response.status);
-//        }
-//      }
-//      catch(e){
-//        setToken('');
-//        console.log("error with request: " + e);
-//      }
-//      return token;
-//    }
-//
-//    async function get_token(code){
-//      let response = null;
-//      try{
-//        //please remove
-//        response = await fetch(`${BASE_URL_BACKEND}/api/auth/token?redirect_uri=${BASE_URL_FRONTEND}`, {
-//            credentials: 'include',  // Include cookies with the request      credentials: 'include',  // Include cookies with the request
-//            method: 'POST',
-//            headers: {
-//              'Content-Type': 'application/json',
-//            },
-//            body: JSON.stringify({ code: code }),
-//        });
-//      } catch(e){
-//        console.log(e);
-//      }
-//      return response;
-//    }
-//
-//    login();
     login();
 
   }, []);
 
   return (
     <>
-      {(token === '' || token == undefined)? console.log("no token yet"): <StagePlayerHomepage token={token}/> }
+      {(token === '' || token == undefined)? console.log("no access token yet"): <StagePlayerHomepage token={token}/> }
     </>
   )
 

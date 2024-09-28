@@ -7,7 +7,6 @@ import axios from "axios";
 import cookieParser from 'cookie-parser';
 import winston from "winston";
 
-global.access_token = ''
 const logger = winston.createLogger({
   // Log only if level is less than (meaning more severe) or equal to this
   level: "info",
@@ -27,20 +26,22 @@ const logger = winston.createLogger({
 
 dotenv.config()
 let app = Router();
-const allowedOrigins = ['http://localhost', 'http://localhost:80', 'http://localhost:2800'];
+const allowed_origin=process.env.ALLOWED_ORIGIN
+//const allowedOrigins = ['http://localhost', 'http://localhost:80', 'http://localhost:2800'];
 
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl)
-    if (!origin) return callback(null, true);
-
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, origin);
-    } else {
-      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-  },
+//  origin: function (origin, callback) {
+//    // Allow requests with no origin (like mobile apps or curl)
+//    if (!origin) return callback(null, true);
+//
+//    if (allowedOrigins.includes(origin)) {
+//      return callback(null, origin);
+//    } else {
+//      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+//      return callback(new Error(msg), false);
+//    }
+//  },
+  origin: allowed_origin,
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
@@ -99,7 +100,6 @@ app.get(path.spotify_auth.auth + path.spotify_auth.refresh_token, function(req:a
 });
 
 app.get(path.spotify_auth.auth + path.spotify_auth.login, (req, res) => {
-
   logger.log("info", "reached login path");
   let scope = "streaming user-read-email user-read-private"
   let state = generateRandomString(16);
@@ -144,19 +144,15 @@ app.post(path.spotify_auth.auth + path.spotify_auth.token, async (req, res) => {
       logger.log("info", "Got response from calling spotify token api url");
       logger.log("info", `Created new cookie, token_created_in_seconds: ${token_created_in_seconds}`);
       const access_token = response.data.access_token;
-      //const refresh_token= response.data.refresh_token;
       const expires_in = response.data.expires_in;
       logger.log("info", `token is : ${access_token}`);
-      // change for prod
-       const cookieOptions: express.CookieOptions = {
+      const use_cookie_secure = (process.env.ENV.toLowerCase() == 'prod')? true: false;
+      const cookieOptions: express.CookieOptions = {
         httpOnly: true,
-        secure: true,
+        secure: use_cookie_secure,
         sameSite: 'lax'
       };
-      // ** get timestamp and set as cookie to check expiration
 
-
-      // Explicitly specify the type of the parameters to avoid any confusion
       res.cookie('access_token', access_token, cookieOptions);
       res.cookie('expires_in', expires_in, cookieOptions);
       res.cookie('token_created_in_seconds',token_created_in_seconds, cookieOptions);

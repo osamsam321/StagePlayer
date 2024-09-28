@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-ADD docker_start_commands.sh /
+ADD builds/docker/docker_start_commands.sh /
 RUN chmod +x /docker_start_commands.sh
 RUN apk add bash
 RUN apk add nodejs npm
@@ -27,9 +27,10 @@ COPY stage_player_back/package.json .
 COPY stage_player_back/package-lock.json .
 #prod is a little confusing, but essentially skip the dev dependencies and install all other dependencies
 RUN npm install --only=prod
-COPY --chown=node:node /stage_player_back/build/stage_player_back .
+#add your app stuff to this docker file
+COPY --chown=node:node stage_player_back/build/stage_player_back .
 WORKDIR /app
-COPY --chown=node:node /stage_player_react/build/ /var/www/
+COPY --chown=node:node stage_player_react/build/ /var/www/
 #FINAL scripts
 RUN echo "<h1> Welcome </h1>">> /var/www/index.html
 CMD ["/bin/bash", "/docker_start_commands.sh"]

@@ -2,14 +2,13 @@ import Nav from './nav';
 import './App.css'
 import React, { useState, useEffect } from 'react';
 import { Vortex, Audio, Bars, LineWave, ColorRing} from 'react-loader-spinner';
-import { render } from '@testing-library/react';
 import TrackSearchQuery from './search_track'
-import assert from 'assert'
 import RenderTopCharts from './RenderTopCharts';
 import SpotifyPlayer from 'react-spotify-web-playback';
 //import { Helmet } from "react-helmet"
 const base_url = process.env.REACT_APP_SP_API_BASE_URL;
-let track_uri_on_playback="";
+const BASE_URL_BACKEND=process.env.REACT_APP_SP_API_BASE_URL;
+const BASE_URL_FRONTEND=process.env.REACT_APP_SP_FRONT_BASE_URL;
 
 const search_top_charts_api = async (token) => {
 
@@ -45,7 +44,6 @@ const update_track_id = (track_id) => {
 }
 
 //console.log("value of token " + props.token);
-let json_response = "";
   const search_bar_input=(query_val) =>{
     if(query_val.trim().length > 0){
       setNoSearchResults(false);
@@ -78,7 +76,7 @@ let json_response = "";
       <Nav/>
       <section id="search">
           <div className="search-container">
-            <a id='home_button' className='cont_size_smallest' href='http://localhost:2800'> <img  height="30" className='pointer_cursor'  src="https://img.icons8.com/ios/50/home--v1.png" alt="home--v1"/> </a>
+            <a id='home_button' className='cont_size_smallest' href={BASE_URL_FRONTEND}> <img  height="30" className='pointer_cursor'  src="https://img.icons8.com/ios/50/home--v1.png" alt="home--v1"/> </a>
             <div className="search_box_container flex-center">
               <input className="search-bk-color" type="text" placeholder="Search Track..." onChange={e=> search_bar_input(e.target.value)} />
               <img id='search_magnify-glass' className='icon_size_small ab_pos_icon ' alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CjxwYXRoIGQ9Ik0gMjEgMyBDIDExLjYyMTA5NCAzIDQgMTAuNjIxMDk0IDQgMjAgQyA0IDI5LjM3ODkwNiAxMS42MjEwOTQgMzcgMjEgMzcgQyAyNC43MTA5MzggMzcgMjguMTQwNjI1IDM1LjgwNDY4OCAzMC45Mzc1IDMzLjc4MTI1IEwgNDQuMDkzNzUgNDYuOTA2MjUgTCA0Ni45MDYyNSA0NC4wOTM3NSBMIDMzLjkwNjI1IDMxLjA2MjUgQyAzNi40NjA5MzggMjguMDg1OTM4IDM4IDI0LjIyMjY1NiAzOCAyMCBDIDM4IDEwLjYyMTA5NCAzMC4zNzg5MDYgMyAyMSAzIFogTSAyMSA1IEMgMjkuMjk2ODc1IDUgMzYgMTEuNzAzMTI1IDM2IDIwIEMgMzYgMjguMjk2ODc1IDI5LjI5Njg3NSAzNSAyMSAzNSBDIDEyLjcwMzEyNSAzNSA2IDI4LjI5Njg3NSA2IDIwIEMgNiAxMS43MDMxMjUgMTIuNzAzMTI1IDUgMjEgNSBaIj48L3BhdGg+Cjwvc3ZnPg=="/>
@@ -169,19 +167,11 @@ async function start_search_delay(){
 }
 
 async function spotify_top_chart(version, token){
-    //console.log("token before sending " + token);
-      const BASE_URL_BACKEND = window.location.href.includes('localhost') ?
-        "http://localhost:3000":
-        "https://odisite";
-      const BASE_URL_FRONTEND = window.location.href.includes('localhost') ?
-        "http://localhost:2800":
-        "https://odisite/stage_player";
     const spotify_base_url='https://api.spotify.com';
     const url = `${spotify_base_url}/${version}/playlists/37i9dQZEVXbMDoHDwVN2tF`;
     const options = {
       method: "GET",
       headers: {
-        //"User-Agent": "stage-player-audio/0.02",
         "Accept": "application/json",
         "Authorization":`Bearer ${token}`,
       }
@@ -193,7 +183,7 @@ async function spotify_top_chart(version, token){
         const json_response = await req.json();
         return json_response;
       }else if(req.status == 401){
-       // console.log("going to refresh token");
+          console.log("Got a 401 with the message: " + req.statusText);
           window.location.href =`${BASE_URL_BACKEND}/api/auth/login?redirect_uri=${BASE_URL_FRONTEND}`;
       }else{
         console.log(`given the error ${req.status}`);

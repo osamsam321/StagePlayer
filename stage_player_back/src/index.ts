@@ -19,20 +19,22 @@ app.use(session({
   saveUninitialized: true,
 }));
 
-const allowedOrigins = ['http://localhost', 'http://localhost:80', 'http://localhost:2800'];
+const allowed_origin=process.env.ALLOWED_ORIGIN
+//const allowedOrigins = ['http://localhost', 'http://localhost:80', 'http://localhost:2800'];
 
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl)
-    if (!origin) return callback(null, true);
+  //origin: function (origin, callback) {
+  //  // Allow requests with no origin (like mobile apps or curl)
+  //  if (!origin) return callback(null, true);
 
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, origin);
-    } else {
-      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-  },
+  //  if (allowedOrigins.includes(origin)) {
+  //    return callback(null, origin);
+  //  } else {
+  //    const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+  //    return callback(new Error(msg), false);
+  //  }
+  //},
+  origin: allowed_origin,
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
@@ -58,7 +60,7 @@ app.use(express.urlencoded({ extended: true }));
 //};
 //app.use(cors(options));
 //app.use(cors());
-app.use(cors());
+//app.use(cors());
 //const __filename = fileURLToPath(import.meta.url);
 //const __dirname = dirname(__filename);
 
