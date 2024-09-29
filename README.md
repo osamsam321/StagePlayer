@@ -1,6 +1,6 @@
 # Stage Player
 
-Stage Player is a web-based music player application built around the Spotify Web API. It allows users to play and manage music directly from their Spotify account through an interactive interface. The app is built using TypeScript, Express, Nginx, React, and Docker to provide a smooth and scalable experience.
+Stage Player is a web-based music player application built around the Spotify Web API. It allows users to play and manage music directly from their Spotify account through an interactive interface. The app is built using  Express, Nginx, React, and Docker to provide a smooth and scalable experience.
 
 ## Prerequisites
 
@@ -13,7 +13,6 @@ Before getting started, you’ll need the following:
 
 ## Technologies Used
 
-- **TypeScript**: For type-safe JavaScript code.
 - **Express**: Node.js framework for building API server.
 - **Nginx**: Used as a reverse proxy and static file server.
 - **React**: Front-end framework for building the UI.
