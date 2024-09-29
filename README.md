@@ -47,7 +47,7 @@ cp builds/docker/.env.file.sample builds/docker/.env.file.prod
 vi builds/docker/.env.file.prod
 ```
 
-### Step 4: Setup React Environment Variables to modify any <domain or hosts> e.g. Set to host to localhost if desired.
+### Step 4: Optional! modify the <domain or hosts> if needed in the react .env file. Default is set to localhost.
 
 Edit .env.sample
 
