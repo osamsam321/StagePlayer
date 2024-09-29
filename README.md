@@ -38,13 +38,22 @@ git clone https://github.com/osamsam321/StagePlayer.git
 cd stage_player
 cd build/docker
 ```
-### Step 3: Setup Environment Variables
+### Step 3: Setup Docker Environment Variables
 
 Edit .env.file.sample
 
 ```bash
 vi builds/docker/.env.file.sample
 cp builds/docker.env.file.sample build/docker.env.file.prod
+```
+
+### Step 4: Setup React Environment Variables
+
+Edit .env.sample
+
+```bash
+vi builds/docker/.env.sample
+cp stage_player_react/.env.sample stage_player_react/.env
 ```
 
 ### Step 4: Setup Environment Variables
