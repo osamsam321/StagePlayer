@@ -43,7 +43,7 @@ Edit .env.file.sample
 
 ```bash
 vi builds/docker/.env.file.sample
-cp builds/docker.env.file.sample build/docker.env.file.prod
+cp builds/docker/.env.file.sample builds/docker/.env.file.prod
 ```
 
 ### Step 4: OPTIONAL! Setup React Environment Variables to modify any domain or hosts
