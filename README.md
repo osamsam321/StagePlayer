@@ -47,7 +47,7 @@ vi builds/docker/.env.file.sample
 cp builds/docker.env.file.sample build/docker.env.file.prod
 ```
 
-### OPTIONAL! Step 4: Setup React Environment Variables to modify any domain or hosts
+### Step 4: OPTIONAL! Setup React Environment Variables to modify any domain or hosts
 
 Edit .env.sample
 
@@ -56,10 +56,11 @@ vi builds/docker/.env.sample
 cp stage_player_react/.env.sample stage_player_react/.env
 ```
 
-### Step 4: Setup Environment Variables
+### Step 5: Build and Run Docker container
 
-Build and Run Docker container
+Go into the directory below and run the shell script
 ```bash
+cd build/docker/
 ./build_run_new_docker.sh ".env.file.prod"
 ```
 
