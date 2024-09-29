@@ -59,7 +59,7 @@ cp stage_player_react/.env.sample stage_player_react/.env
 
 Go into the directory below and run the shell script
 ```bash
-cd build/docker/
+cd builds/docker/
 ./build_run_new_docker.sh ".env.file.prod"
 ```
 
