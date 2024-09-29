@@ -42,6 +42,7 @@ cd build/docker
 Edit .env.file.sample
 
 ```bash
+#GOTO ROOT FOLDER THEN RUN
 cp builds/docker/.env.file.sample builds/docker/.env.file.prod
 vi builds/docker/.env.file.prod
 ```
@@ -51,6 +52,7 @@ vi builds/docker/.env.file.prod
 Edit .env.sample
 
 ```bash
+#GOTO ROOT FOLDER THEN RUN
 cp stage_player_react/.env.sample stage_player_react/.env
 vi builds/docker/.env
 ```
