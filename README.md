@@ -46,7 +46,7 @@ vi builds/docker/.env.file.sample
 cp builds/docker/.env.file.sample builds/docker/.env.file.prod
 ```
 
-### Step 4: OPTIONAL! Setup React Environment Variables to modify any domain or hosts
+### Step 4: Setup React Environment Variables to modify any domain or hosts> e.g. Set to host to localhost if desired.
 
 Edit .env.sample
 
