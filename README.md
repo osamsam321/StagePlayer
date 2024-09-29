@@ -26,7 +26,7 @@ Before getting started, you’ll need the following:
 1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/applications).
 2. Create a new application.
 3. Obtain the **Client ID** and **Client Secret** from the application details.
-4. Set the appropriate **Redirect URIs** for OAuth, such as `http://localhost/callback`.
+4. Set the appropriate **Redirect URIs** for OAuth. This should be good enough for now:  `http://localhost/stage_player.index.html`.
 
 
 ### Step 2: Clone Project
