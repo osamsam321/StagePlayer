@@ -57,7 +57,17 @@ cp stage_player_react/.env.sample stage_player_react/.env
 
 ### Step 5: Build and Run Docker container
 
+
+To add docker group: 
+
+```bash
+sudo usermod -aG docker <your_username>
+```
+
+Please run this with a user that has the docker group? Otherwise you'll need to run the below with sudo permissions.
+
 Go into the directory below and run the shell script
+
 ```bash
 cd builds/docker/
 ./build_run_new_docker.sh ".env.file.prod"
