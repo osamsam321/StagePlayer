@@ -19,7 +19,6 @@
     "react-spotify-web-playback": "^0.14.4",
     "web-vitals": "^2.1.4"
   },
-
   "scripts": {
     "start-dev": "PORT=2800 react-app-rewired start",
     "build": "react-app-rewired build",

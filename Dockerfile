@@ -19,7 +19,8 @@ EXPOSE 80
 #NGINX stuff
 COPY nginx/alphine/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/alphine/default /etc/nginx/http.d/default
-
+COPY nginx-selfsigned.crt /etc/ssl/certs
+COPY nginx-selfsigned.key /etc/ssl/private/
 #COPY --chown=node:node /stage_player_back/build/ /app/
 #API portion sir
 WORKDIR /app/stage_player_back
