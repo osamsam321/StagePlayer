@@ -80,3 +80,5 @@ cd builds/docker/
 Go to https://whateverhost:32700 
 
 Select advanced and continue to site.  
+
+#### Make sure your using https or this will not work!
