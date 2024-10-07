@@ -103,10 +103,11 @@ Thumbs.db
 *.tar
 *.zip
 
-# ignore private/secret files
+# ignore private/secret/cert  files
 *.der
 *.key
 *.pem
+*.crt
 
 #ignore enviornment files
 *.env

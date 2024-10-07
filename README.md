@@ -75,3 +75,8 @@ cd builds/docker/
 ./build_run_new_docker.sh ".env.file.prod"
 ```
 
+### Step 6: Build and Run Docker container
+
+Go to https://<your host>:32700 
+
+Select advanced and continue to site.  

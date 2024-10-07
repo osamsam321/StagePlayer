@@ -15,6 +15,8 @@ if [ "$1" = ".env.file.prod" ] || [ "$1" = ".env.file.dev" ]; then
     docker_build_dir=`pwd`
     env_file=`realpath $1`
     docker_tag='stage_player_docker_v1'
+    docker_secure_port='32700'
+    docker
 
     #STOP
 
@@ -40,7 +42,7 @@ if [ "$1" = ".env.file.prod" ] || [ "$1" = ".env.file.dev" ]; then
 
     #RUN
 
-    docker_container_id=$(docker run --name $docker_tag --env-file "$env_file" -p 3000:3000 -p 80:80 -p 443:443 -d "$docker_tag")
+    docker_container_id=$(docker run --name $docker_tag --env-file "$env_file" -p 3000:3000 -p  $docker_secure_port:$docker_secure_port -d "$docker_tag")
     echo "your container id: $docker_container_id"
     echo "done"
 
