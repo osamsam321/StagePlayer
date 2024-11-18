@@ -16,7 +16,6 @@ if [ "$1" = ".env.file.prod" ] || [ "$1" = ".env.file.dev" ]; then
     env_file=`realpath $1`
     docker_tag='stage_player_docker_v1'
     docker_secure_port='32700'
-    docker
 
     #STOP
 

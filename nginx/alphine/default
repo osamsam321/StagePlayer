@@ -1,11 +1,15 @@
 # This is a default site configuration which will simply return 404, preventing
 # chance access to any other virtualhost.
-
+# Redirect HTTP to HTTPS on port 32700
+# HTTPS configuration on port 32700
+# HTTP to HTTPS redirection on port 32700
 server {
 	ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
     	ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
 	listen [::]:32700 ssl;
 	listen 32700 ssl;
+ 	# Redirect HTTP requests sent to HTTPS port
+    	error_page 497 https://$host:32700$request_uri;
 	http2 on;
         root /var/www;
 
