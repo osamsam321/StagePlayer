@@ -77,7 +77,7 @@ cd builds/docker/
 
 ### Step 6: Build and Run Docker container
 
-Go to `https://<your_host>/`
+Go to `https://<your host or ip>:32700/`
 
 Select advanced and continue to site.  
 
