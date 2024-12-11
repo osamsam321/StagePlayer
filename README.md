@@ -35,7 +35,7 @@ Create a `.env` file at the root of the project and fill it with the following d
 ```bash
 git clone https://github.com/osamsam321/StagePlayer.git
 cd StagePlayer
-cd build/docker
+cd builds/docker/
 ```
 ### Step 3: Setup Docker Environment Variables
 
