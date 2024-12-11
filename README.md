@@ -53,7 +53,7 @@ Edit .env.sample
 ```bash
 #GOTO ROOT FOLDER THEN RUN
 cp stage_player_react/.env.sample stage_player_react/.env
-vi builds/docker/.env
+vi stage_player_react/.env
 ```
 
 ### Step 5: Build and Run Docker container
